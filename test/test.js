@@ -27,6 +27,7 @@ test('Rectangle constructor', function (t) {
   t.equal(r.width,32);
   t.equal(r.height,45);
 });
+
 test('Point#moveBy', function (t) {
   t.plan(4);
   var p = new Point(144,333);
@@ -40,12 +41,10 @@ test('Point#moveBy', function (t) {
 });
 
 test('Square#centerAt', function (t) {
-  t.plan(3);
+  t.plan(2);
   var s = Square.centerAt(new Point(100,150),46);
   t.equal(s.point.x,77);
   t.equal(s.point.y,127);
-
-  t.equal(s.side,46);
 });
 
 

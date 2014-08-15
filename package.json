@@ -1,0 +1,27 @@
+{
+  "name": "shapes",
+  "version": "0.0.0",
+  "description": "A shapes library for JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js",
+    "test-coveralls": "istanbul cover test/test.js  && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
+    "jshint": "jshint test/* lib/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tillarnold/shapes"
+  },
+  "keywords": [
+    "shapes",
+    "canvas"
+  ],
+  "author": "Till Arnold",
+  "license": "MIT",
+  "devDependencies": {
+    "jshint": "^2.5.3",
+    "tape": "^2.14.0",
+    "istanbul": "~0.3.0",
+    "coveralls": "~2.11.1"
+  }
+}

@@ -47,4 +47,23 @@ test('Square#centerAt', function (t) {
   t.equal(s.point.y,127);
 });
 
+test('Rectangle#round', function (t) {
+  t.plan(4);
+  var r = new Rect(new Point(33.4,2.1),44.7,88.9999).round();
+  t.equal(r.point.x,33);
+  t.equal(r.point.y,2);
+  t.equal(r.width,45);
+  t.equal(r.height,89);
+});
 
+
+test('Point#distaceTo', function (t) {
+  t.plan(3);
+  var p1 = new Point(10,50);
+  var p2 = new Point(10,60);
+  var p3 = new Point(20,50);
+  var p4 = new Point(20,60);
+  t.equals(p1.distanceTo(p2),10);
+  t.equals(p1.distanceTo(p3),10);
+  t.equals(Math.round(p1.distanceTo(p4)),14);
+});

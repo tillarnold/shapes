@@ -4,8 +4,6 @@ var shapes = require('..');
 var Point = shapes.Point;
 var Rect = shapes.Rectangle;
 var Circle = shapes.Circle;
-var Square = shapes.Square;
-
 
 
 test('Point constructor', function (t) {
@@ -39,14 +37,6 @@ test('Point#moveBy', function (t) {
   t.equal(p3.x,147);
   t.equal(p3.y,332);
 });
-
-test('Square#centerAt', function (t) {
-  t.plan(2);
-  var s = Square.centerAt(new Point(100,150),46);
-  t.equal(s.point.x,77);
-  t.equal(s.point.y,127);
-});
-
 test('Rectangle#round', function (t) {
   t.plan(4);
   var r = new Rect(new Point(33.4,2.1),44.7,88.9999).round();

@@ -25,9 +25,9 @@ test('Rectangle constructor', function (t) {
   t.equal(r.width,32);
   t.equal(r.height,45);
   
-  var r = new Rect([10,100],0,0);
-  t.equal(r.point.x,10);
-  t.equal(r.point.y,100);
+  var r2 = new Rect([10,100],0,0);
+  t.equal(r2.point.x,10);
+  t.equal(r2.point.y,100);
 });
 
 test('Vector#add', function (t) {

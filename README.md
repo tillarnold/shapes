@@ -7,4 +7,5 @@
 A shapes library for JavaScript
 
 ## Release History
+* 2014-09-13   v0.0.2   Fixed circle constructor bug.
 * 2014-09-13   v0.0.1   Initial version.

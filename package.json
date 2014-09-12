@@ -1,6 +1,6 @@
 {
   "name": "shapes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A shapes library for JavaScript",
   "main": "index.js",
   "scripts": {

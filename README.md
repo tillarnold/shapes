@@ -5,3 +5,6 @@
 [![Coverage Status](https://coveralls.io/repos/tillarnold/shapes/badge.png?branch=master)](https://coveralls.io/r/tillarnold/shapes?branch=master)
 
 A shapes library for JavaScript
+
+## Release History
+* 2014-09-13   v0.0.1   Initial version.

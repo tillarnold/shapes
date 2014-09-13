@@ -34,6 +34,7 @@ myShapeEmitter.on("click",function(){
 
 ```
 ## Release History
+* 2014-09-14   v0.2.1   Fix path method in Polygon.
 * 2014-09-14   v0.2.0   Add Polygon.
 * 2014-09-13   v0.1.0   Add mouseout and mouseover to ShapeEventEmitter.
 * 2014-09-13   v0.0.2   Fixed circle constructor bug.

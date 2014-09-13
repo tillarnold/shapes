@@ -30,3 +30,21 @@ test('Rectangle#contains', function(t) {
   t.equals(r.contains([20, 15]), true);
   t.equals(r.contains([200, 21]), false);
 });
+
+test('Rectangle#clone', function(t) {
+  t.plan(1);
+  var r = new Rect([10,10],10,10);
+  var x = r.clone();
+  r.width = 100;
+
+  t.equals(x.width,10);
+
+});
+
+test('Rectangle#moveBy', function(t) {
+  t.plan(2);
+  var r = new Rect([100,30],5,5);
+  var r2 = r.moveBy([11,1]);
+  t.equals(r2.point.x, 111);
+  t.equals(r2.point.y, 31);
+});

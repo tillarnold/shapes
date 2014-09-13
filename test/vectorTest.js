@@ -69,3 +69,9 @@ test('Vector#fromAngle', function(t) {
   t.equals(v.y, 0);
 
 });
+
+test('Vector#makeVector', function(t) {
+  t.plan(1);
+  t.throws(function(){ Vector.makeVector({});});
+});
+

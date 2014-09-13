@@ -90,3 +90,47 @@ test('Polygon#contains', function(t) {
   t.equals(p1.contains([15, 15]), true);
   t.equals(p1.contains([21, 15]), false);
 });
+
+
+test('Vector#getAngle', function(t) {
+  t.plan(2);
+  var v = new Vector(10, 0);
+  t.equals(v.getAngle(), 0);
+
+  var v2 = new Vector(10, 10);
+  t.equals(Math.round(v2.getAngle()), 1);
+});
+
+test('Vector#midpoint', function(t) {
+  t.plan(2);
+  var v = new Vector(10, 10);
+  var m = v.midpoint([10, 20]);
+  t.equals(m.x, 10);
+  t.equals(m.y, 15);
+
+});
+
+
+test('Vector#getMagnitude', function(t) {
+  t.plan(1);
+
+  var v = new Vector(0, 10);
+  t.equals(v.getMagnitude(), 10);
+});
+
+
+test('Vector#fromAngle', function(t) {
+  t.plan(2);
+
+  var v = Vector.fromAngle(0, 10);
+  t.equals(v.x, 10);
+  t.equals(v.y, 0);
+
+});
+
+test('Rectangle#contains', function(t) {
+  t.plan(2);
+  var r = new Rect([10, 10], 100, 20);
+  t.equals(r.contains([20, 15]), true);
+  t.equals(r.contains([200, 21]), false);
+});

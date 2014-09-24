@@ -1,6 +1,5 @@
 var test = require('tape');
 
-var shapes = require('..');
 var BaseShape = require('../lib/baseShape.js');
 
 var noop = function() {};

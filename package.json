@@ -25,7 +25,7 @@
     "coveralls": "~2.11.1"
   },
   "dependencies": {
-    "canvas-utils": "^0.1.0",
+    "canvas-utils": "^0.3.2",
     "red-blue-line-segment-intersect": "^1.0.1"
   }
 }

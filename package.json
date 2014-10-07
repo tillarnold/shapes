@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "canvas-utils": "^0.3.2",
+    "inherits": "^2.0.1",
     "red-blue-line-segment-intersect": "^1.0.1"
   }
 }

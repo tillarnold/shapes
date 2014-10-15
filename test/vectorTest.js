@@ -74,4 +74,3 @@ test('Vector#makeVector', function(t) {
   t.plan(1);
   t.throws(function(){ Vector.makeVector({});});
 });
-

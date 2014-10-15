@@ -1,3 +1,5 @@
+'use strict';
+
 require('./rectangleTest.js');
 require('./circleTest.js');
 require('./vectorTest.js');

@@ -1,6 +1,8 @@
+'use strict';
+var test = require('tape');
+
 var shapes = require('..');
 var Circle = shapes.Circle;
-var test = require('tape');
 var Vector = shapes.Vector;
 
 

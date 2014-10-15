@@ -1,11 +1,11 @@
+'use strict';
+var test = require('tape');
+
 var shapes = require('..');
 var EventEmitter = require('events').EventEmitter;
 
 var Rect = shapes.Rectangle;
 var ShapeEventEmitter = shapes.ShapeEventEmitter;
-
-var test = require('tape');
-
 
 test('ShapeEventEmitter emit events', function(t) {
   t.plan(4);

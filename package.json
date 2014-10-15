@@ -7,6 +7,7 @@
     "test": "node test/test.js",
     "test-coveralls": "istanbul cover test/test.js  && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
     "jshint": "jshint test/* lib/*",
+    "eslint": "eslint --rule 'no-underscore-dangle: false' --rule 'quotes: [1, \"single\", \"avoid-escape\"]' --env browser,node lib/* test/*",
     "coverage": "rm -rf coverage && istanbul cover test/test.js && istanbul report html && serve coverage"
   },
   "repository": {
@@ -24,7 +25,8 @@
     "tape": "^3.0.0",
     "istanbul": "~0.3.0",
     "coveralls": "~2.11.1",
-    "serve": "^1.4.0"
+    "serve": "^1.4.0",
+    "eslint": "^0.8.2"
   },
   "dependencies": {
     "canvas-utils": "^0.4.0",

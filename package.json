@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node test/test.js",
     "test-coveralls": "istanbul cover test/test.js  && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
-    "jshint": "jshint test/* lib/*"
+    "jshint": "jshint test/* lib/*",
+    "coverage": "rm -rf coverage && istanbul cover test/test.js && istanbul report html && serve coverage"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,8 @@
     "jshint": "^2.5.3",
     "tape": "^3.0.0",
     "istanbul": "~0.3.0",
-    "coveralls": "~2.11.1"
+    "coveralls": "~2.11.1",
+    "serve": "^1.4.0"
   },
   "dependencies": {
     "canvas-utils": "^0.4.0",

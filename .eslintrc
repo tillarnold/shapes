@@ -1,0 +1,19 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-underscore-dangle": false,
+    "quotes": [2, "single", "avoid-escape"],
+    "valid-jsdoc":2,
+    "no-else-return":2,
+    "no-floating-decimal":2,
+    "no-self-compare":2,
+    "radix":2,
+    "wrap-iife":2,
+    "func-style": [2, "expression"],
+    "consistent-this": [2, "that"],
+    "no-lonely-if":2
+  }
+}

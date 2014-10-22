@@ -14,10 +14,10 @@ test('Circle constructor', function(t) {
 
 test('Circle#contains', function(t) {
   t.plan(2);
-  var c = new Circle( [20,20], 10);
+  var c = new Circle([20, 20], 10);
 
-  var v1 = [21,18];
-  var v2 = [99,18];
+  var v1 = [21, 18];
+  var v2 = [99, 18];
 
   t.equal(c.contains(v1), true);
   t.equal(c.contains(v2), false);
@@ -25,7 +25,7 @@ test('Circle#contains', function(t) {
 
 test('Circle#round', function(t) {
   t.plan(3);
-  var c = new Circle( [20.49,25.33], 0.76);
+  var c = new Circle([20.49, 25.33], 0.76);
   var c2 = c.round();
 
   t.equal(c2.center.x, 20);
@@ -36,7 +36,7 @@ test('Circle#round', function(t) {
 
 test('Circle#clone', function(t) {
   t.plan(3);
-  var c = new Circle( [55,66],3);
+  var c = new Circle([55, 66], 3);
   var c2 = c.clone();
 
   c.center.x = 100;
@@ -50,8 +50,8 @@ test('Circle#clone', function(t) {
 
 test('Circle#moveBy', function(t) {
   t.plan(3);
-  var c = new Circle( [55,66],3);
-  var c2 = c.moveBy([10,20]);
+  var c = new Circle([55, 66], 3);
+  var c2 = c.moveBy([10, 20]);
 
   c.center.x = 100;
   c.center.y = 10440;

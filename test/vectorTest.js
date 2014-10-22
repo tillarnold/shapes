@@ -73,5 +73,7 @@ test('Vector#fromAngle', function(t) {
 
 test('Vector#makeVector', function(t) {
   t.plan(1);
-  t.throws(function(){ Vector.makeVector({});});
+  t.throws(function() {
+    Vector.makeVector({});
+  });
 });

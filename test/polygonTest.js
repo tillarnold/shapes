@@ -74,6 +74,6 @@ test('Polygon#round', function(t) {
     [20, 10]
   ]);
 
-  var p2 = p1.moveBy([5,1]);
+  var p2 = p1.moveBy([5, 1]);
   t.deepEqual(p2.vectors, p0.vectors);
 });

@@ -4,12 +4,14 @@ var test = require('tape');
 var shapes = require('..');
 var Vector = shapes.Vector;
 
+
 test('Vector constructor', function(t) {
   t.plan(2);
   var p = new Vector(400, 42);
   t.equal(p.x, 400);
   t.equal(p.y, 42);
 });
+
 
 test('Vector#add', function(t) {
   t.plan(4);
@@ -23,6 +25,20 @@ test('Vector#add', function(t) {
   t.equal(p3.y, 332);
 });
 
+
+test('Vector#subtract', function(t) {
+  t.plan(4);
+  var p = new Vector(300, 200);
+  var p2 = p.subtract([20, 30]);
+  t.equal(p2.x, 280);
+  t.equal(p2.y, 170);
+
+  var p3 = p2.subtract(new Vector(-30, -10));
+  t.equal(p3.x, 310);
+  t.equal(p3.y, 180);
+});
+
+
 test('Vector#distaceTo', function(t) {
   t.plan(3);
   var p1 = new Vector(10, 50);
@@ -34,7 +50,6 @@ test('Vector#distaceTo', function(t) {
 });
 
 
-
 test('Vector#getAngle', function(t) {
   t.plan(2);
   var v = new Vector(10, 0);
@@ -43,6 +58,7 @@ test('Vector#getAngle', function(t) {
   var v2 = new Vector(10, 10);
   t.equals(Math.round(v2.getAngle()), 1);
 });
+
 
 test('Vector#midpoint', function(t) {
   t.plan(2);
@@ -70,6 +86,7 @@ test('Vector#fromAngle', function(t) {
   t.equals(v.y, 0);
 
 });
+
 
 test('Vector#makeVector', function(t) {
   t.plan(1);

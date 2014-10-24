@@ -39,6 +39,21 @@ test('Vector#subtract', function(t) {
 });
 
 
+test('Vector#dotProduct', function(t) {
+  t.plan(3);
+  var a = new Vector(-6, 8);
+  var b = new Vector(5, 12);
+
+  var dotProduct1 = a.dotProduct(b);
+  var dotProduct2 = b.dotProduct(a);
+
+  t.equal(dotProduct1, dotProduct2);
+
+  t.equal(dotProduct1, 66);
+  t.equal(dotProduct2, 66);
+});
+
+
 test('Vector#distaceTo', function(t) {
   t.plan(3);
   var p1 = new Vector(10, 50);

@@ -38,6 +38,18 @@ test('Vector#subtract', function(t) {
   t.equal(p3.y, 180);
 });
 
+test('Vector#isBetween', function(t) {
+  t.plan(4);
+  var pM = new Vector(10, 20);
+  var p1 = new Vector(10, 30);
+  var p2 = new Vector(10, 10);
+
+  t.equal(pM.isBetween(p1,p2), true);
+  t.equal(pM.isBetween(p1,p2), true);
+
+  t.equal(p1.isBetween(pM,p2), false);
+  t.equal(p2.isBetween(pM,p1), false);
+});
 
 test('Vector#dotProduct', function(t) {
   t.plan(3);

@@ -26,7 +26,7 @@
     "istanbul": "~0.3.0",
     "coveralls": "~2.11.1",
     "serve": "^1.4.0",
-    "eslint": "^0.8.2"
+    "eslint": "^0.9.0"
   },
   "dependencies": {
     "canvas-utils": "^0.4.0",

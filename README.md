@@ -11,20 +11,15 @@ A shapes library for JavaScript
 var rc = reuqire('random-color');
 var shapes = reuqire('shapes');
 
-
-var CanvasEventEmitter = require('canvas-utils').CanvasEventEmitter;
 var ShapeEventEmitter = shapes.ShapeEventEmitter;
 var Circle = shapes.Circle;
 
 var canvas  =  document.getElementById('c');
 var ctx = canvas.getContext('2d');
 
-
-var myCanvasEmitter = new CanvasEventEmitter(canvas);
-
 var myShape = new Circle([200,200],50);
 
-var myShapeEmitter = new ShapeEventEmitter(myShape,myCanvasEmitter);
+var myShapeEmitter = new ShapeEventEmitter(myShape,canvas);
 
 myShape.stroke(ctx);
 

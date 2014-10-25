@@ -8,7 +8,9 @@
     "test-coveralls": "istanbul cover test/test.js  && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
     "jshint": "jshint test/* lib/*",
     "eslint": "eslint lib/* test/*",
-    "coverage": "rm -rf coverage && istanbul cover test/test.js && istanbul report html && serve coverage"
+    "coverage": "rm -rf coverage && istanbul cover test/test.js && istanbul report html && serve coverage",
+    "test-manually": "beefy test/manually.js -v",
+    "test-manually-live": "beefy test/manually.js -v --live"
   },
   "repository": {
     "type": "git",
@@ -25,8 +27,9 @@
     "tape": "^3.0.0",
     "istanbul": "~0.3.0",
     "coveralls": "~2.11.1",
-    "serve": "^1.4.0",
-    "eslint": "^0.9.0"
+    "eslint": "^0.9.0",
+    "beefy": "^2.1.1",
+    "watchify": "^2.1.0"
   },
   "dependencies": {
     "canvas-utils": "^0.4.0",

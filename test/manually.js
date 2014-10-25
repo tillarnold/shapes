@@ -15,7 +15,8 @@ var see = new ShapeEventEmitter(circle, canvas);
 
 
 var colorSwitch = true;
-see.on('click', function(){
+see.on('click', function(e){
+  console.log(e);
   colorSwitch = !colorSwitch;
   ctx.fillStyle = colorSwitch ? 'red' : 'blue';
 

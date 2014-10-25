@@ -27,7 +27,7 @@ test('Vector#add', function(t) {
 
 
 test('Vector#subtract', function(t) {
-  t.plan(4);
+  t.plan(6);
   var p = new Vector(300, 200);
   var p2 = p.subtract([20, 30]);
   t.equal(p2.x, 280);
@@ -36,6 +36,10 @@ test('Vector#subtract', function(t) {
   var p3 = p2.subtract(new Vector(-30, -10));
   t.equal(p3.x, 310);
   t.equal(p3.y, 180);
+
+  var p4 = p.subtract(100, 30);
+  t.equal(p4.x, 200);
+  t.equal(p4.y, 170);
 });
 
 test('Vector#isBetween', function(t) {

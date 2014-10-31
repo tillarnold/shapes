@@ -35,6 +35,21 @@ test('Polygon#contains', function(t) {
   t.equals(p1.contains([21, 15]), false);
 });
 
+test('Polygon#getCentroid', function(t) {
+  t.plan(2);
+  var p1 = new Polygon([
+    [10, 10],
+    [10, 30],
+    [20, 30],
+    [20, 10]
+  ]);
+
+  var center = p1.getCentroid();
+
+  t.equals(center.x, 15);
+  t.equals(center.y, 20);
+});
+
 test('Polygon#round', function(t) {
   t.plan(1);
 
@@ -57,7 +72,7 @@ test('Polygon#round', function(t) {
 });
 
 
-test('Polygon#round', function(t) {
+test('Polygon#moveBy', function(t) {
   t.plan(1);
 
   var p0 = new Polygon([

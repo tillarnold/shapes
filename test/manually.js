@@ -2,7 +2,7 @@
 
 var shape = require('..');
 
-var ShapeEventEmitter = shape.ShapeEventEmitter;
+//var ShapeEventEmitter = shape.ShapeEventEmitter;
 var canvas = document.createElement('canvas');
 var ctx = canvas.getContext('2d');
 
@@ -11,7 +11,7 @@ canvas.style.outline = '1px solid black';
 
 
 var circle = new shape.Circle([10, 10], 50);
-var see = new ShapeEventEmitter(circle, canvas);
+var see = circle.createShapeEventEmitter(canvas);
 
 
 var colorSwitch = true;

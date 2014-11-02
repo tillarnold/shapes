@@ -111,3 +111,26 @@ test('ShapeEventEmitter mouseover and mouseout', function(t) {
 
   t.equal(cee, see.getCanvasEventEmitter());
 });
+
+test('preventDefault', function(t) {
+  t.plan(1);
+
+  var r = new Rect([10, 10], 100, 100);
+
+  var cee = new EventEmitter();
+  var see = new ShapeEventEmitter(r, cee);
+
+  see.on('mousemove', function(e) {
+    e.preventDefault();
+  });
+
+  cee.emit('mousemove', {
+    x: 30,
+    y: 70,
+    preventDefault: function() {
+      t.pass();
+    }
+  });
+
+
+});

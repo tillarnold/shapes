@@ -49,3 +49,23 @@ test('Rectangle#moveBy', function(t) {
   t.equals(r2.point.x, 111);
   t.equals(r2.point.y, 31);
 });
+
+test('Rectangle#path', function(t) {
+  t.plan(2);
+  var moves = 0;
+  var lines = 0;
+
+  var mockCtx = {
+    moveTo: function() {
+      moves++;
+    },
+    lineTo: function() {
+      lines++;
+    }
+  };
+
+  var r = new Rect([100, 30], 5, 5);
+  r.path(mockCtx);
+  t.equals(lines, 4);
+  t.equals(moves, 1);
+});

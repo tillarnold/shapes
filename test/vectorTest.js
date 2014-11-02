@@ -4,12 +4,24 @@ var test = require('tape');
 var shapes = require('..');
 var Vector = shapes.Vector;
 
-
 test('Vector constructor', function(t) {
-  t.plan(2);
+  t.plan(5);
+
   var p = new Vector(400, 42);
   t.equal(p.x, 400);
   t.equal(p.y, 42);
+
+  t.throws(function(){
+    new Vector({},[]);
+  });
+
+  t.throws(function(){
+    new Vector('tt',new Date());
+  });
+
+  t.throws(function(){
+    new Vector(t,6);
+  });
 });
 
 

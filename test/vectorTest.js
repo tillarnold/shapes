@@ -12,15 +12,15 @@ test('Vector constructor', function(t) {
   t.equal(p.y, 42);
 
   t.throws(function(){
-    new Vector({},[]);
+    p = new Vector({},[]);
   });
 
   t.throws(function(){
-    new Vector('tt',new Date());
+    p = new Vector('tt',new Date());
   });
 
   t.throws(function(){
-    new Vector(t,6);
+    p = new Vector(t,6);
   });
 });
 

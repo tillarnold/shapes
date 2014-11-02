@@ -30,6 +30,7 @@ myShapeEmitter.on("click",function(){
 
 ```
 ## Release History
+* 2014-11-02   v0.4.0   A canvas is now a valid parameter for ShapeEventEmitter.
 * 2014-09-14   v0.3.0   Add `mouseout` event.
 * 2014-09-14   v0.2.1   Fix path method in Polygon.
 * 2014-09-14   v0.2.0   Add Polygon.

@@ -27,7 +27,7 @@
     "tape": "^3.0.0",
     "istanbul": "~0.3.0",
     "coveralls": "~2.11.1",
-    "eslint": "^0.9.0",
+    "eslint": "^0.13.0",
     "beefy": "^2.1.1",
     "watchify": "^2.1.0"
   },

@@ -12,15 +12,15 @@ test('Vector constructor', function(t) {
   t.equal(p.y, 42);
 
   t.throws(function(){
-    p = new Vector({},[]);
+    p = new Vector({}, []);
   });
 
   t.throws(function(){
-    p = new Vector('tt',new Date());
+    p = new Vector('tt', new Date());
   });
 
   t.throws(function(){
-    p = new Vector(t,6);
+    p = new Vector(t, 6);
   });
 });
 
@@ -60,11 +60,11 @@ test('Vector#isBetween', function(t) {
   var p1 = new Vector(10, 30);
   var p2 = new Vector(10, 10);
 
-  t.equal(pM.isBetween(p1,p2), true);
-  t.equal(pM.isBetween(p1,p2), true);
+  t.equal(pM.isBetween(p1, p2), true);
+  t.equal(pM.isBetween(p1, p2), true);
 
-  t.equal(p1.isBetween(pM,p2), false);
-  t.equal(p2.isBetween(pM,p1), false);
+  t.equal(p1.isBetween(pM, p2), false);
+  t.equal(p2.isBetween(pM, p1), false);
 });
 
 test('Vector#dotProduct', function(t) {

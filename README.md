@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/tillarnold/shapes.svg?branch=master)](https://travis-ci.org/tillarnold/shapes)
 [![Dependency Status](https://david-dm.org/tillarnold/shapes.svg)](https://david-dm.org/tillarnold/shapes)
 [![devDependency Status](https://david-dm.org/tillarnold/shapes/dev-status.svg)](https://david-dm.org/tillarnold/shapes#info=devDependencies)
-[![Coverage Status](https://coveralls.io/repos/tillarnold/shapes/badge.png?branch=master)](https://coveralls.io/r/tillarnold/shapes?branch=master)
+[![Coverage Status](https://coveralls.io/repos/tillarnold/shapes/badge.svg?branch=master)](https://coveralls.io/r/tillarnold/shapes?branch=master)
 
 A shapes library for JavaScript
 

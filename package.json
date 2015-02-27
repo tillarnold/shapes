@@ -4,13 +4,14 @@
   "description": "A shapes library for JavaScript",
   "main": "index.js",
   "scripts": {
-    "test": "node test/test.js",
-    "test-coveralls": "istanbul cover test/test.js  && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
-    "jshint": "jshint test/* lib/*",
-    "eslint": "eslint lib/* test/*",
-    "coverage": "rm -rf coverage && istanbul cover test/test.js && istanbul report html && serve coverage",
-    "test-manually": "beefy test/manually.js -v",
-    "test-manually-live": "beefy test/manually.js -v --live"
+    "test": "npm run build && node es5-generated/test/test.js",
+    "test-coveralls": "npm run istanbul && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
+    "coverage": "rm -rf coverage && npm run istanbul && istanbul report html && serve coverage",
+    "istanbul": "npm run build && istanbul cover es5-generated/test/test.js",
+    "lint": "eslint src-es6/* && jshint src-es6/*",
+    "build": "rm -rf es5-generated && mkdir es5-generated  && babel src-es6 --out-dir es5-generated",
+    "test-manually": "beefy es5-generated/test/manually.js -v",
+    "test-manually-live": "beefy es5-generated/test/manually.js -v --live"
   },
   "repository": {
     "type": "git",
@@ -29,10 +30,12 @@
     "coveralls": "~2.11.1",
     "eslint": "^0.15.0",
     "beefy": "^2.1.1",
-    "watchify": "^2.1.0"
+    "watchify": "^2.1.0",
+    "babel": "^4.6.0",
+    "babel-eslint": "^1.0.6"
   },
   "dependencies": {
-    "canvas-utils": "^0.5.0",
+    "canvas-utils": "tillarnold/canvas-utils#es6",
     "inherits": "^2.0.1",
     "red-blue-line-segment-intersect": "^1.0.1",
     "es6-map": "^0.1.1"

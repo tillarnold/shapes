@@ -35,9 +35,8 @@
     "babel-eslint": "^1.0.6"
   },
   "dependencies": {
-    "canvas-utils": "tillarnold/canvas-utils#es6",
-    "inherits": "^2.0.1",
-    "red-blue-line-segment-intersect": "^1.0.1",
-    "es6-map": "^0.1.1"
+    "canvas-utils": "^0.6.0",
+    "es6-map": "^0.1.1",
+    "red-blue-line-segment-intersect": "^1.0.1"
   }
 }

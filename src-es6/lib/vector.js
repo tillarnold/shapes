@@ -7,6 +7,8 @@ module.exports = class Vector {
 
     this.x = x;
     this.y = y;
+
+    Object.freeze(this);
   }
 
   distanceTo() {
@@ -74,10 +76,6 @@ module.exports = class Vector {
     // a^2 + b^2 = c^2
     // sqrt(a^2 + b^2) = c
     return Math.sqrt(this.x * this.x + this.y * this.y);
-  }
-
-  clone() {
-    return new Vector(this.x, this.y);
   }
 
   getAngle() {

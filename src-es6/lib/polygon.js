@@ -14,6 +14,8 @@ module.exports = class Polygon extends BaseShape {
       this.vectors.push(makeVector(el));
     });
 
+    Object.freeze(this);
+
   }
 
   toPairs() {
@@ -84,16 +86,21 @@ module.exports = class Polygon extends BaseShape {
     return new Vector(cx, cy);
   }
 
+  /**
+   * creates a new Polygon by calling map
+   * on the vectors in the Polygon
+   * @param {function} the map function
+   */
   map(fn) {
     return new Polygon(this.vectors.map(fn));
   }
 
+  /**
+   * Returns a new Polygon with
+   * all vectors rounded
+   */
   round() {
     return this.map( el => el.round() );
-  }
-
-  clone() {
-    return this.map( el => el.clone() );
   }
 
   moveBy(v) {

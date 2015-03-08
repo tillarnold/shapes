@@ -8,28 +8,28 @@ module.exports = class BaseShape {
     this.path(ctx);
     ctx.fill();
     ctx.restore();
-  };
+  }
 
   clip(ctx) {
     ctx.save();
     ctx.beginPath();
     this.path(ctx);
     ctx.clip();
-  };
+  }
 
   fill(ctx) {
     ctx.beginPath();
     this.path(ctx);
     ctx.fill();
-  };
+  }
 
   stroke(ctx) {
     ctx.beginPath();
     this.path(ctx);
     ctx.stroke();
-  };
+  }
 
   createShapeEventEmitter(canvas) {
     return new ShapeEventEmitter(this, canvas);
-  };
+  }
 };

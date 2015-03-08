@@ -9,6 +9,8 @@ module.exports = class Rectangle extends BaseShape {
     this.point = vector;
     this.width = w;
     this.height = h;
+
+    Object.freeze(this);
   }
 
 
@@ -30,10 +32,6 @@ module.exports = class Rectangle extends BaseShape {
 
   round() {
     return new Rectangle(this.point.round(), Math.round(this.width), Math.round(this.height));
-  }
-
-  clone() {
-    return new Rectangle(this.point.clone(), this.width, this.height);
   }
 
   moveBy(v) {

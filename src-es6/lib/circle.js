@@ -7,8 +7,16 @@ let BaseShape = require('./baseShape.js')
 module.exports = class Circle extends BaseShape{
   constructor(v, radius) {
     let vector = makeVector(v);
+
+    if(! Number.isFinite(radius)) {
+      throw Error('The radius parameter for the Circle counstructor must be a number.' +
+                      `Your parameter was "${radius}"`);
+    }
+
     this.radius = radius;
     this.center = vector;
+
+    Object.freeze(this);
   }
 
   path(ctx) {
@@ -24,11 +32,11 @@ module.exports = class Circle extends BaseShape{
     return new Circle(this.center.round(), Math.round(this.radius));
   }
 
-  clone() {
-    return new Circle(this.center.clone(), this.radius);
-  }
-
   moveBy(v) {
     return new Circle(this.center.add(v), this.radius);
+  }
+
+  changeRadiusBy(r) {
+    return new Circle(this.center, this.radius + r);
   }
 };

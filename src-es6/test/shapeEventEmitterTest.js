@@ -1,100 +1,93 @@
-'use strict';
-var test = require('tape');
+let test = require('tape')
+  , { EventEmitter } = require('events')
+  , { Rectangle: Rect , ShapeEventEmitter} = require('..');
 
-var shapes = require('..');
-var EventEmitter = require('events').EventEmitter;
-
-var Rect = shapes.Rectangle;
-var ShapeEventEmitter = shapes.ShapeEventEmitter;
-
-test('ShapeEventEmitter emit events', function(t) {
+test('ShapeEventEmitter emit events', (t) => {
   t.plan(4);
 
-  var r = new Rect([10, 10], 100, 100);
-  var cee = new EventEmitter();
-  var see = new ShapeEventEmitter(r, cee);
+  let r = new Rect([10, 10], 100, 100)
+    , cee = new EventEmitter()
+    , see = new ShapeEventEmitter(r, cee);
 
-  see.on('click', function(e) {
+  see.on('click', (e) => {
     t.equal(e.type, 'click');
   });
 
-  see.on('mousedown', function(e) {
+  see.on('mousedown', (e) => {
     t.equal(e.type, 'mousedown');
   });
 
-  see.on('mouseup', function(e) {
+  see.on('mouseup', (e) => {
     t.equal(e.type, 'mouseup');
   });
 
-  see.on('mousemove', function(e) {
+  see.on('mousemove', (e) => {
     t.equal(e.type, 'mousemove');
   });
 
-  var eventClick = {
-    x: 50,
-    y: 50
-  };
+  let eventClick = { x: 50
+                   , y: 50
+                   };
+
   cee.emit('click', eventClick);
   cee.emit('mousemove', eventClick);
   cee.emit('mousedown', eventClick);
   cee.emit('mouseup', eventClick);
 });
 
-test('ShapeEventEmitter filter events', function(t) {
-  var r = new Rect([10, 10], 100, 100);
-  var cee = new EventEmitter();
-  var see = new ShapeEventEmitter(r, cee);
+test('ShapeEventEmitter filter events', (t) => {
+  let r = new Rect([10, 10], 100, 100)
+    , cee = new EventEmitter()
+    , see = new ShapeEventEmitter(r, cee);
 
-  see.on('click', function() {
+  see.on('click', () => {
     t.fail('called event listener for click');
   });
 
-  see.on('mousedown', function() {
+  see.on('mousedown', () => {
     t.fail('called event listener for mousedown');
   });
 
-  var eventClick = {
-    x: 800,
-    y: 50
-  };
+  let eventClick = { x: 800
+                   , y: 50
+                   };
 
   cee.emit('click', eventClick);
   cee.emit('mousedown', eventClick);
   t.end();
 });
 
-test('ShapeEventEmitter mouseover and mouseout', function(t) {
-  var r = new Rect([10, 10], 100, 100);
-  var cee = new EventEmitter();
-  var see = new ShapeEventEmitter(r, cee);
-
-  var overs = 0;
-  var outs = 0;
+test('ShapeEventEmitter mouseover and mouseout', (t) => {
+  let r = new Rect([10, 10], 100, 100)
+    , cee = new EventEmitter()
+    , see = new ShapeEventEmitter(r, cee)
+    , overs = 0
+    , outs = 0;
 
   t.plan(6);
 
-  see.on('mouseover', function(e) {
+  see.on('mouseover', (e) => {
     t.equal(e.type, 'mouseover');
     overs++;
   });
 
-  see.on('mouseout', function(e) {
+  see.on('mouseout', (e) => {
     t.equal(e.type, 'mouseout');
     outs++;
   });
 
-  cee.emit('mousemove', {
-    x: 50,
-    y: 50
-  });
-  cee.emit('mousemove', {
-    x: 500,
-    y: 50
-  });
-  cee.emit('mousemove', {
-    x: 50,
-    y: 60
-  });
+  cee.emit('mousemove', { x: 50
+                        , y: 50
+                        });
+
+  cee.emit('mousemove', { x: 500
+                        , y: 50
+                        });
+
+  cee.emit('mousemove', { x: 50
+                        , y: 60
+                        });
+
   cee.emit('mouseout', {});
   cee.emit('mouseout', {});
 
@@ -102,35 +95,29 @@ test('ShapeEventEmitter mouseover and mouseout', function(t) {
   t.equal(outs, 2);
 });
 
-test('ShapeEventEmitter mouseover and mouseout', function(t) {
-  var r = new Rect([10, 10], 100, 100);
-  var cee = new EventEmitter();
-  var see = new ShapeEventEmitter(r, cee);
+test('ShapeEventEmitter mouseover and mouseout', (t) => {
+  let r = new Rect([10, 10], 100, 100)
+    , cee = new EventEmitter()
+    , see = new ShapeEventEmitter(r, cee);
 
   t.plan(1);
 
   t.equal(cee, see.getCanvasEventEmitter());
 });
 
-test('preventDefault', function(t) {
+test('preventDefault', (t) => {
   t.plan(1);
 
-  var r = new Rect([10, 10], 100, 100);
+  let r = new Rect([10, 10], 100, 100)
+    , cee = new EventEmitter()
+    , see = new ShapeEventEmitter(r, cee);
 
-  var cee = new EventEmitter();
-  var see = new ShapeEventEmitter(r, cee);
-
-  see.on('mousemove', function(e) {
+  see.on('mousemove', (e) => {
     e.preventDefault();
   });
 
-  cee.emit('mousemove', {
-    x: 30,
-    y: 70,
-    preventDefault: function() {
-      t.pass();
-    }
-  });
-
-
+  cee.emit('mousemove', { x: 30
+                        , y: 70
+                        , preventDefault: () => t.pass()
+                        });
 });

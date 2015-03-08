@@ -20,7 +20,7 @@ module.exports = class ShapeEventEmitter extends EventEmitter {
        this._cee = canvasEventEmitterMap.get(canvasReference);
      }
      else {
-       var newEmitter = createCanvasEventEmitter(canvasReference);
+       let newEmitter = createCanvasEventEmitter(canvasReference);
        this._cee = newEmitter;
        canvasEventEmitterMap.set(canvasReference, newEmitter);
      }

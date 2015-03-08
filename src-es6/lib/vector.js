@@ -17,7 +17,7 @@ module.exports = class Vector {
       , s2 = (this.y - vector.y) * (this.y - vector.y);
 
     return Math.sqrt(s1 + s2);
-  };
+  }
 
   toPair() {
     return [this.x, this.y];

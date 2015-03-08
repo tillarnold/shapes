@@ -8,8 +8,8 @@ module.exports = class Circle extends BaseShape{
   constructor(v, radius) {
     let vector = makeVector(v);
 
-    if(! Number.isFinite(radius)) {
-      throw Error('The radius parameter for the Circle counstructor must be a number.' +
+    if(!Number.isFinite(radius)) {
+      throw new Error('The radius parameter for the Circle counstructor must be a number.' +
                       `Your parameter was "${radius}"`);
     }
 

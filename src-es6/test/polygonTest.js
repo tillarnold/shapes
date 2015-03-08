@@ -1,5 +1,5 @@
 let test = require('tape')
-  , { Vector, Polygon }  = require('..');
+  , { Polygon } = require('..');
 
 test('Polygon#contains', function(t) {
   t.plan(2);
@@ -29,9 +29,9 @@ test('Polygon#getCentroid', function(t) {
 test('Polygon#round', (t) => {
   t.plan(1);
 
-  let p0 = new Polygon([ [10, 10],
-                       , [10, 20],
-                       , [20, 20],
+  let p0 = new Polygon([ [10, 10]
+                       , [10, 20]
+                       , [20, 20]
                        , [20, 10]
                        ])
     , p1 = new Polygon([ [9.5, 9.6]

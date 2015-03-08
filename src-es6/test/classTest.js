@@ -1,13 +1,15 @@
 let test = require('tape')
-  , { Vector, Polygon, Rectangle, Circle, ShapeEventEmitter}  = require('..');
+  , { Vector, Polygon, Rectangle, Circle, ShapeEventEmitter} = require('..');
 
-test('Polygon#contains', (t) =>  {
+test('Polygon#contains', (t) => {
   t.plan(5);
-  t.throws(()=> Polygon(), TypeError)
-  t.throws(()=> Rectangle(),TypeError)
-  t.throws(()=> Vector(),TypeError)
-  t.throws(()=> Circle(),TypeError)
-  t.throws(()=> ShapeEventEmitter(),TypeError)
+  //Disable warning about missing 'new'. That's what we are testing
+  /*jshint -W064 */
+  t.throws(()=> Polygon(), TypeError);
+  t.throws(()=> Rectangle(), TypeError);
+  t.throws(()=> Vector(), TypeError);
+  t.throws(()=> Circle(), TypeError);
+  t.throws(()=> ShapeEventEmitter(), TypeError);
 
 });
 

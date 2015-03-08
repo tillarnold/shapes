@@ -1,5 +1,5 @@
 let test = require('tape')
-  , { Rectangle: Rect, Vector}  = require('..');
+  , { Rectangle: Rect, Vector} = require('..');
 
 test('Rectangle constructor', (t) => {
   t.plan(4);

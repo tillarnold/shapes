@@ -1,9 +1,9 @@
 let Vector = require('./vector.js')
   , { EventEmitter } = require('events')
   , { createCanvasEventEmitter } = require('canvas-utils')
-  , MapObject = require('es6-map');
+  , MapObject = require('es6-map')
 
-let canvasEventEmitterMap = new MapObject();
+let canvasEventEmitterMap = new MapObject()
 
 module.exports = class ShapeEventEmitter extends EventEmitter {
   /**
@@ -18,37 +18,37 @@ module.exports = class ShapeEventEmitter extends EventEmitter {
 
     if(typeof HTMLCanvasElement !== 'undefined' && canvasReference instanceof HTMLCanvasElement) {
      if(canvasEventEmitterMap.has(canvasReference)) {
-       this._cee = canvasEventEmitterMap.get(canvasReference);
+       this._cee = canvasEventEmitterMap.get(canvasReference)
      }
      else {
-       let newEmitter = createCanvasEventEmitter(canvasReference);
-       this._cee = newEmitter;
-       canvasEventEmitterMap.set(canvasReference, newEmitter);
+       let newEmitter = createCanvasEventEmitter(canvasReference)
+       this._cee = newEmitter
+       canvasEventEmitterMap.set(canvasReference, newEmitter)
      }
     }
     else {
-       this._cee = canvasReference;
+       this._cee = canvasReference
     }
 
-    let canvasEventEmitter = this._cee;
+    let canvasEventEmitter = this._cee
 
-    this._mouseEntered = false;
+    this._mouseEntered = false
 
     canvasEventEmitter.on('mouseout', (e) => {
       if (this._mouseEntered) {
         this.emit('mouseout', { type: 'mouseout'
                               , target: e.target
                               , event: e.event
-                              });
+                              })
 
-        this._mouseEntered = false;
+        this._mouseEntered = false
       }
-    });
+    })
 
-    ['click', 'mousedown', 'mouseup', 'mousemove'].forEach( elem => {
+    ; ['click', 'mousedown', 'mouseup', 'mousemove'].forEach( elem => {
       canvasEventEmitter.on(elem, e => {
         let move = elem === 'mousemove'
-          , {x, y, event, target, button} = e;
+          , {x, y, event, target, button} = e
 
 
         if (shape.contains([x, y])) {
@@ -60,15 +60,15 @@ module.exports = class ShapeEventEmitter extends EventEmitter {
                           , event
                           , button
                           , preventDefault: () => e.preventDefault()
-                          });
+                          })
 
           if (move && !this._mouseEntered) {
             this.emit('mouseover', { type: 'mouseover'
                                    , target
                                    , event
-                                   });
+                                   })
 
-            this._mouseEntered = true;
+            this._mouseEntered = true
           }
 
         } else if (move && this._mouseEntered) {
@@ -76,15 +76,15 @@ module.exports = class ShapeEventEmitter extends EventEmitter {
           this.emit('mouseout', { type: 'mouseout'
                                 , target
                                 , event
-                                });
+                                })
 
-          this._mouseEntered = false;
+          this._mouseEntered = false
         }
-      });
-    });
+      })
+    })
   }
 
   getCanvasEventEmitter() {
-    return this._cee;
+    return this._cee
   }
-};
+}

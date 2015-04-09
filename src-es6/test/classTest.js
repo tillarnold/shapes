@@ -1,15 +1,17 @@
 let test = require('tape')
-  , { Vector, Polygon, Rectangle, Circle, ShapeEventEmitter} = require('..');
+  , { Vector, Polygon, Rectangle, Circle, ShapeEventEmitter} = require('..')
 
 test('Polygon#contains', (t) => {
-  t.plan(5);
+  t.plan(5)
   //Disable warning about missing 'new'. That's what we are testing
   /*jshint -W064 */
-  t.throws(()=> Polygon(), TypeError);
-  t.throws(()=> Rectangle(), TypeError);
-  t.throws(()=> Vector(), TypeError);
-  t.throws(()=> Circle(), TypeError);
-  t.throws(()=> ShapeEventEmitter(), TypeError);
+  /*eslint-disable new-cap */
+  t.throws(()=> Polygon(), TypeError)
+  t.throws(()=> Rectangle(), TypeError)
+  t.throws(()=> Vector(), TypeError)
+  t.throws(()=> Circle(), TypeError)
+  t.throws(()=> ShapeEventEmitter(), TypeError)
+  /*eslint-enable new-cap */
 
-});
+})
 

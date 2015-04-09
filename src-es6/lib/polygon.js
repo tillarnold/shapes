@@ -1,59 +1,59 @@
 let BaseShape = require('./baseShape.js')
   , Vector = require('./vector.js')
-  , findIntersections = require('red-blue-line-segment-intersect');
+  , findIntersections = require('red-blue-line-segment-intersect')
 
-let { makeVector } = Vector;
+let { makeVector } = Vector
 
 
 module.exports = class Polygon extends BaseShape {
   constructor(vs) {
     super()
 
-    this.vectors = [];
+    this.vectors = []
 
     vs.forEach( el => {
-      this.vectors.push(makeVector(el));
-    });
+      this.vectors.push(makeVector(el))
+    })
 
-    Object.freeze(this);
+    Object.freeze(this)
 
   }
 
   toPairs() {
     let v = this.vectors
-      , pol = [];
+      , pol = []
 
     v.forEach( (elem, i) => {
-      pol.push([elem.toPair(), (v[i + 1] || new Vector(0, 0)).toPair()]);
-    });
+      pol.push([elem.toPair(), (v[i + 1] || new Vector(0, 0)).toPair()])
+    })
 
-    pol[pol.length - 1][1] = v[0].toPair();
-    return pol;
+    pol[pol.length - 1][1] = v[0].toPair()
+    return pol
   }
 
   path(ctx) {
-    let v = this.vectors;
+    let v = this.vectors
 
-    ctx.moveTo(v[0].x, v[0].y);
+    ctx.moveTo(v[0].x, v[0].y)
 
     v.forEach( el => {
-      ctx.lineTo(el.x, el.y);
-    });
+      ctx.lineTo(el.x, el.y)
+    })
 
-    ctx.lineTo(v[0].x, v[0].y);
+    ctx.lineTo(v[0].x, v[0].y)
   }
 
   contains(...args) {
     let vector = makeVector(args)
       , line = [vector.toPair(), vector.add([9999.987, 99999.964]).toPair()]
       , pairs = this.toPairs()
-      , count = 0;
+      , count = 0
 
     findIntersections(pairs, [line], () => {
-      count++;
-    });
+      count++
+    })
 
-    return count % 2 === 1;
+    return count % 2 === 1
   }
 
   getCentroid() {
@@ -62,29 +62,29 @@ module.exports = class Polygon extends BaseShape {
       , { vectors } = this
       , { length } = vectors
       , a = 0.0
-      , i1 = 1;
+      , i1 = 1
 
     vectors.forEach( el => {
-      a += el.x * vectors[i1].y - vectors[i1].x * el.y;
-      i1 = (i1 + 1) % length;
-    });
+      a += el.x * vectors[i1].y - vectors[i1].x * el.y
+      i1 = (i1 + 1) % length
+    })
 
-    a *= 0.5;
+    a *= 0.5
 
 
-    cx = cy = 0.0;
-    i1 = 1;
+    cx = cy = 0.0
+    i1 = 1
     vectors.forEach( el => {
-      let t = el.x * vectors[i1].y - vectors[i1].x * el.y;
-      cx += (el.x + vectors[i1].x) * t;
-      cy += (el.y + vectors[i1].y) * t;
-      i1 = (i1 + 1) % length;
-    });
-    cx = cx / (6.0 * a);
-    cy = cy / (6.0 * a);
+      let t = el.x * vectors[i1].y - vectors[i1].x * el.y
+      cx += (el.x + vectors[i1].x) * t
+      cy += (el.y + vectors[i1].y) * t
+      i1 = (i1 + 1) % length
+    })
+    cx = cx / (6.0 * a)
+    cy = cy / (6.0 * a)
 
 
-    return new Vector(cx, cy);
+    return new Vector(cx, cy)
   }
 
   /**
@@ -93,7 +93,7 @@ module.exports = class Polygon extends BaseShape {
    * @param {function} the map function
    */
   map(fn) {
-    return new Polygon(this.vectors.map(fn));
+    return new Polygon(this.vectors.map(fn))
   }
 
   /**
@@ -101,10 +101,10 @@ module.exports = class Polygon extends BaseShape {
    * all vectors rounded
    */
   round() {
-    return this.map( el => el.round() );
+    return this.map( el => el.round() )
   }
 
   moveBy(v) {
-    return this.map( el => el.add(v) );
+    return this.map( el => el.add(v) )
   }
-};
+}

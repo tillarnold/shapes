@@ -4,6 +4,8 @@ let BaseShape = require('./baseShape.js')
 module.exports = class Rectangle extends BaseShape {
 
   constructor(v, w, h) {
+    super()
+
     let vector = makeVector(v);
 
     this.point = vector;

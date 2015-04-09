@@ -14,6 +14,7 @@ module.exports = class ShapeEventEmitter extends EventEmitter {
    *                                                              or an canvasElement
    */
   constructor(shape, canvasReference) {
+    super()
 
     if(typeof HTMLCanvasElement !== 'undefined' && canvasReference instanceof HTMLCanvasElement) {
      if(canvasEventEmitterMap.has(canvasReference)) {

@@ -6,6 +6,8 @@ let BaseShape = require('./baseShape.js')
 
 module.exports = class Circle extends BaseShape{
   constructor(v, radius) {
+    super()
+
     let vector = makeVector(v);
 
     if(!Number.isFinite(radius)) {

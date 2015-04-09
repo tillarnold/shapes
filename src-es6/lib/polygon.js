@@ -7,6 +7,7 @@ let { makeVector } = Vector;
 
 module.exports = class Polygon extends BaseShape {
   constructor(vs) {
+    super()
 
     this.vectors = [];
 

@@ -1,6 +1,12 @@
-module.exports = { Vector: require('./lib/vector.js')
-                 , Rectangle: require('./lib/rectangle.js')
-                 , Circle: require('./lib/circle.js')
-                 , Polygon: require('./lib/polygon.js')
-                 , ShapeEventEmitter: require('./lib/shapeEventEmitter.js')
-                 }
+import Vector from './lib/vector.js'
+import Rectangle from './lib/rectangle.js'
+import Circle from './lib/circle.js'
+import Polygon from './lib/polygon.js'
+import ShapeEventEmitter from './lib/shapeEventEmitter.js'
+
+export { Vector
+       , Rectangle
+       , Circle
+       , Polygon
+       , ShapeEventEmitter
+       }

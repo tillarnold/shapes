@@ -1,10 +1,7 @@
-'use strict'
+import BaseShape from './baseShape.js'
+import { makeVector } from './vector.js'
 
-let BaseShape = require('./baseShape.js')
-  , { makeVector } = require('./vector.js')
-
-
-module.exports = class Circle extends BaseShape{
+export default class Circle extends BaseShape{
   constructor(v, radius) {
     super()
 

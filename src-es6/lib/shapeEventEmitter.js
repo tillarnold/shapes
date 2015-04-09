@@ -1,11 +1,11 @@
-let Vector = require('./vector.js')
-  , { EventEmitter } = require('events')
-  , { createCanvasEventEmitter } = require('canvas-utils')
-  , MapObject = require('es6-map')
+import Vector from './vector.js'
+import { EventEmitter } from 'events'
+import { createCanvasEventEmitter } from 'canvas-utils'
+import MapObject from 'es6-map'
 
 let canvasEventEmitterMap = new MapObject()
 
-module.exports = class ShapeEventEmitter extends EventEmitter {
+export default class ShapeEventEmitter extends EventEmitter {
   /**
    *
    * @constructor

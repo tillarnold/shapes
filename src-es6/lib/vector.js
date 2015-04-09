@@ -1,4 +1,4 @@
-module.exports = class Vector {
+export default class Vector {
   constructor (x, y) {
 
     if(!(Number.isFinite(x) && Number.isFinite(y))) {

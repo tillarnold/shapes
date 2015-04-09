@@ -1,7 +1,7 @@
-let BaseShape = require('./baseShape.js')
-  , { makeVector } = require('./vector.js')
+import BaseShape from './baseShape.js'
+import { makeVector } from './vector.js'
 
-module.exports = class Rectangle extends BaseShape {
+export default class Rectangle extends BaseShape {
 
   constructor(v, w, h) {
     super()

@@ -1,6 +1,6 @@
-let ShapeEventEmitter = require('./shapeEventEmitter.js')
+import ShapeEventEmitter from './shapeEventEmitter.js'
 
-module.exports = class BaseShape {
+export default class BaseShape {
   clear(ctx) {
     ctx.save()
     ctx.beginPath()

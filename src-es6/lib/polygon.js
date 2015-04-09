@@ -1,11 +1,11 @@
-let BaseShape = require('./baseShape.js')
-  , Vector = require('./vector.js')
-  , findIntersections = require('red-blue-line-segment-intersect')
+import BaseShape from './baseShape.js'
+import Vector from './vector.js'
+import findIntersections from 'red-blue-line-segment-intersect'
 
 let { makeVector } = Vector
 
 
-module.exports = class Polygon extends BaseShape {
+export default class Polygon extends BaseShape {
   constructor(vs) {
     super()
 

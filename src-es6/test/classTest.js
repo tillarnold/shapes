@@ -1,5 +1,5 @@
-let test = require('tape')
-  , { Vector, Polygon, Rectangle, Circle, ShapeEventEmitter} = require('..')
+import test from 'tape'
+import { Vector, Polygon, Rectangle, Circle, ShapeEventEmitter } from '..'
 
 test('Polygon#contains', (t) => {
   t.plan(5)

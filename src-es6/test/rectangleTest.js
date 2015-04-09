@@ -1,5 +1,5 @@
-let test = require('tape')
-  , { Rectangle: Rect, Vector} = require('..')
+import test from 'tape'
+import { Rectangle as Rect, Vector} from '..'
 
 test('Rectangle constructor', (t) => {
   t.plan(4)

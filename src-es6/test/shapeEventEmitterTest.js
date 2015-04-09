@@ -1,6 +1,6 @@
-let test = require('tape')
-  , { EventEmitter } = require('events')
-  , { Rectangle: Rect, ShapeEventEmitter} = require('..')
+import test from 'tape'
+import { EventEmitter } from'events'
+import { Rectangle as Rect, ShapeEventEmitter } from '..'
 
 test('ShapeEventEmitter emit events', (t) => {
   t.plan(4)

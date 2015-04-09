@@ -1,5 +1,5 @@
-let test = require('tape')
-  , { Vector } = require('..')
+import test from 'tape'
+import { Vector } from '..'
 
 test('Vector constructor', (t) => {
   t.plan(5)

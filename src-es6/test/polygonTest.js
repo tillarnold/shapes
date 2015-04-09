@@ -1,5 +1,5 @@
-let test = require('tape')
-  , { Polygon } = require('..')
+import test from 'tape'
+import { Polygon } from '..'
 
 test('Polygon#contains', function(t) {
   t.plan(2)

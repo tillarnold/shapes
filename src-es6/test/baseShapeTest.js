@@ -1,8 +1,7 @@
-let test = require('tape')
-  , BaseShape = require('../lib/baseShape.js')
-  , { ShapeEventEmitter } = require('../')
-  , { Rectangle } = require('..')
-
+import test from 'tape'
+import BaseShape from '../lib/baseShape.js'
+import { ShapeEventEmitter } from '..'
+import { Rectangle } from '..'
 
 let noop = function() {}
 

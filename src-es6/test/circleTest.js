@@ -1,6 +1,5 @@
-let test = require('tape')
-  , { Circle, Vector } = require('..')
-
+import test from 'tape'
+import { Circle, Vector } from '..'
 
 test('Circle constructor', (t) => {
   t.plan(1)

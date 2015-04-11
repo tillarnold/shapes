@@ -1,7 +1,7 @@
 import test from 'tape'
 import { Polygon } from '..'
 
-test('Polygon#contains', function(t) {
+test('Polygon#contains', t => {
   t.plan(2)
   let p1 = new Polygon([ [10, 10]
                        , [10, 20]
@@ -13,7 +13,7 @@ test('Polygon#contains', function(t) {
   t.equals(p1.contains([21, 15]), false)
 })
 
-test('Polygon#getCentroid', function(t) {
+test('Polygon#getCentroid', t => {
   t.plan(2)
   let p1 = new Polygon([ [10, 10]
                        , [10, 30]
@@ -26,7 +26,7 @@ test('Polygon#getCentroid', function(t) {
   t.equals(center.y, 20)
 })
 
-test('Polygon#round', (t) => {
+test('Polygon#round', t => {
   t.plan(1)
 
   let p0 = new Polygon([ [10, 10]
@@ -45,7 +45,7 @@ test('Polygon#round', (t) => {
 })
 
 
-test('Polygon#moveBy', (t) => {
+test('Polygon#moveBy', t => {
   t.plan(1)
 
   let p0 = new Polygon([ [15, 11]

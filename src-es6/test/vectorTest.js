@@ -1,28 +1,22 @@
 import test from 'tape'
 import { Vector } from '..'
 
-test('Vector constructor', (t) => {
+test('Vector constructor', t => {
   t.plan(5)
 
   let p = new Vector(400, 42)
   t.equal(p.x, 400)
   t.equal(p.y, 42)
 
-  t.throws(() => {
-    p = new Vector({}, [])
-  })
+  t.throws(() => new Vector({}, []))
 
-  t.throws(() => {
-    p = new Vector('tt', new Date())
-  })
+  t.throws(() => new Vector('tt', new Date()))
 
-  t.throws(() => {
-    p = new Vector(t, 6)
-  })
+  t.throws(() => new Vector(t, 6))
 })
 
 
-test('Vector#add', (t) => {
+test('Vector#add', t => {
   t.plan(4)
   let p = new Vector(144, 333)
     , p2 = p.add([33, 9])
@@ -36,7 +30,7 @@ test('Vector#add', (t) => {
 })
 
 
-test('Vector#subtract', (t) => {
+test('Vector#subtract', t => {
   t.plan(6)
   let p = new Vector(300, 200)
     , p2 = p.subtract([20, 30])
@@ -53,7 +47,7 @@ test('Vector#subtract', (t) => {
   t.equal(p4.y, 170)
 })
 
-test('Vector#isBetween', (t) => {
+test('Vector#isBetween', t => {
   t.plan(4)
   let pM = new Vector(10, 20)
     , p1 = new Vector(10, 30)
@@ -66,7 +60,7 @@ test('Vector#isBetween', (t) => {
   t.equal(p2.isBetween(pM, p1), false)
 })
 
-test('Vector#dotProduct', (t) => {
+test('Vector#dotProduct', t => {
   t.plan(3)
   let a = new Vector(-6, 8)
     , b = new Vector(5, 12)
@@ -80,7 +74,7 @@ test('Vector#dotProduct', (t) => {
 })
 
 
-test('Vector#distaceTo', (t) => {
+test('Vector#distaceTo', t => {
   t.plan(3)
   let p1 = new Vector(10, 50)
     , p2 = new Vector(10, 60)
@@ -92,7 +86,7 @@ test('Vector#distaceTo', (t) => {
 })
 
 
-test('Vector#getAngle', (t) => {
+test('Vector#getAngle', t => {
   t.plan(2)
   let v = new Vector(10, 0)
   t.equals(v.getAngle(), 0)
@@ -102,7 +96,7 @@ test('Vector#getAngle', (t) => {
 })
 
 
-test('Vector#midpoint', (t) => {
+test('Vector#midpoint', t => {
   t.plan(2)
   let v = new Vector(10, 10)
     , m = v.midpoint([10, 20])
@@ -113,7 +107,7 @@ test('Vector#midpoint', (t) => {
 })
 
 
-test('Vector#getMagnitude', (t) => {
+test('Vector#getMagnitude', t => {
   t.plan(1)
 
   let v = new Vector(0, 10)
@@ -121,7 +115,7 @@ test('Vector#getMagnitude', (t) => {
 })
 
 
-test('Vector#fromAngle', (t) => {
+test('Vector#fromAngle', t => {
   t.plan(2)
 
   let v = Vector.fromAngle(0, 10)
@@ -131,9 +125,7 @@ test('Vector#fromAngle', (t) => {
 })
 
 
-test('Vector#makeVector', (t) => {
+test('Vector#makeVector', t => {
   t.plan(1)
-  t.throws(() => {
-    Vector.makeVector({})
-  })
+  t.throws(() => Vector.makeVector({}))
 })

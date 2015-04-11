@@ -1,7 +1,7 @@
 import test from 'tape'
 import { Rectangle as Rect, Vector} from '..'
 
-test('Rectangle constructor', (t) => {
+test('Rectangle constructor', t => {
   t.plan(4)
   let r = new Rect(new Vector(44, 66), 32, 45)
   t.equal(r.width, 32)
@@ -12,7 +12,7 @@ test('Rectangle constructor', (t) => {
   t.equal(r2.point.y, 100)
 })
 
-test('Rectangle#round', (t) => {
+test('Rectangle#round', t => {
   t.plan(4)
   let r = new Rect(new Vector(33.4, 2.1), 44.7, 88.9999).round()
 
@@ -22,7 +22,7 @@ test('Rectangle#round', (t) => {
   t.equal(r.height, 89)
 })
 
-test('Rectangle#contains', (t) => {
+test('Rectangle#contains', t => {
   t.plan(2)
   let r = new Rect([10, 10], 100, 20)
 
@@ -30,7 +30,7 @@ test('Rectangle#contains', (t) => {
   t.equals(r.contains([200, 21]), false)
 })
 
-test('Rectangle#moveBy', (t) => {
+test('Rectangle#moveBy', t => {
   t.plan(2)
   let r = new Rect([100, 30], 5, 5)
     , r2 = r.moveBy([11, 1])
@@ -39,7 +39,7 @@ test('Rectangle#moveBy', (t) => {
   t.equals(r2.point.y, 31)
 })
 
-test('Rectangle#path', (t) => {
+test('Rectangle#path', t => {
   t.plan(2)
   let moves = 0
     , lines = 0

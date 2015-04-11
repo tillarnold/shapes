@@ -10,7 +10,7 @@ global.window = {}
 global.window.document = {}
 global.window.document.addEventListener = noop
 
-test('BaseShape#clear', (t) => {
+test('BaseShape#clear', t => {
   t.plan(2)
   let mockCtx = { save: noop
                 , beginPath: noop
@@ -29,7 +29,7 @@ test('BaseShape#clear', (t) => {
 })
 
 
-test('BaseShape#clip', (t) => {
+test('BaseShape#clip', t => {
   t.plan(1)
   let mockCtx = { save: noop
                 , beginPath: noop
@@ -44,16 +44,14 @@ test('BaseShape#clip', (t) => {
 })
 
 
-test('BaseShape#fill', (t) => {
+test('BaseShape#fill', t => {
   t.plan(1)
   let mockCtx = { beginPath: noop
                 , fill: noop
                 }
     , bs = new BaseShape()
 
-  bs.path = () => {
-    t.pass('path function was called')
-  }
+  bs.path = () => t.pass('path function was called')
 
   bs.fill(mockCtx)
 })
@@ -66,9 +64,8 @@ test('BaseShape#stroke', t => {
                 }
     , bs = new BaseShape()
 
-  bs.path = () => {
-    t.pass('path function was called')
-  }
+  bs.path = () => t.pass('path function was called')
+
 
   bs.stroke(mockCtx)
 })

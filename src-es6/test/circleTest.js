@@ -1,14 +1,14 @@
 import test from 'tape'
 import { Circle, Vector } from '..'
 
-test('Circle constructor', (t) => {
+test('Circle constructor', t => {
   t.plan(1)
   let c = new Circle(new Vector(50, 50), 10)
 
   t.equal(c.radius, 10)
 })
 
-test('Circle#contains', (t) => {
+test('Circle#contains', t => {
   t.plan(2)
   let c = new Circle([20, 20], 10)
     , v1 = [21, 18]
@@ -18,7 +18,7 @@ test('Circle#contains', (t) => {
   t.equal(c.contains(v2), false)
 })
 
-test('Circle#round', (t) => {
+test('Circle#round', t => {
   t.plan(3)
   let c = new Circle([20.49, 25.33], 0.76)
     , c2 = c.round()
@@ -29,7 +29,7 @@ test('Circle#round', (t) => {
 })
 
 
-test('Circle#moveBy', (t) => {
+test('Circle#moveBy', t => {
   t.plan(3)
   let c = new Circle([55, 66], 3)
     , c2 = c.moveBy([10, 20])

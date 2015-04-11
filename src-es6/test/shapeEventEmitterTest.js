@@ -2,28 +2,20 @@ import test from 'tape'
 import { EventEmitter } from'events'
 import { Rectangle as Rect, ShapeEventEmitter } from '..'
 
-test('ShapeEventEmitter emit events', (t) => {
+test('ShapeEventEmitter emit events', t => {
   t.plan(4)
 
   let r = new Rect([10, 10], 100, 100)
     , cee = new EventEmitter()
     , see = new ShapeEventEmitter(r, cee)
 
-  see.on('click', (e) => {
-    t.equal(e.type, 'click')
-  })
+  see.on('click', e => t.equal(e.type, 'click'))
 
-  see.on('mousedown', (e) => {
-    t.equal(e.type, 'mousedown')
-  })
+  see.on('mousedown', e => t.equal(e.type, 'mousedown'))
 
-  see.on('mouseup', (e) => {
-    t.equal(e.type, 'mouseup')
-  })
+  see.on('mouseup', e => t.equal(e.type, 'mouseup'))
 
-  see.on('mousemove', (e) => {
-    t.equal(e.type, 'mousemove')
-  })
+  see.on('mousemove', e => t.equal(e.type, 'mousemove'))
 
   let eventClick = { x: 50
                    , y: 50
@@ -35,18 +27,14 @@ test('ShapeEventEmitter emit events', (t) => {
   cee.emit('mouseup', eventClick)
 })
 
-test('ShapeEventEmitter filter events', (t) => {
+test('ShapeEventEmitter filter events', t => {
   let r = new Rect([10, 10], 100, 100)
     , cee = new EventEmitter()
     , see = new ShapeEventEmitter(r, cee)
 
-  see.on('click', () => {
-    t.fail('called event listener for click')
-  })
+  see.on('click', () => t.fail('called event listener for click'))
 
-  see.on('mousedown', () => {
-    t.fail('called event listener for mousedown')
-  })
+  see.on('mousedown', () => t.fail('called event listener for mousedown'))
 
   let eventClick = { x: 800
                    , y: 50
@@ -57,7 +45,7 @@ test('ShapeEventEmitter filter events', (t) => {
   t.end()
 })
 
-test('ShapeEventEmitter mouseover and mouseout', (t) => {
+test('ShapeEventEmitter mouseover and mouseout', t => {
   let r = new Rect([10, 10], 100, 100)
     , cee = new EventEmitter()
     , see = new ShapeEventEmitter(r, cee)
@@ -66,12 +54,12 @@ test('ShapeEventEmitter mouseover and mouseout', (t) => {
 
   t.plan(6)
 
-  see.on('mouseover', (e) => {
+  see.on('mouseover', e => {
     t.equal(e.type, 'mouseover')
     overs++
   })
 
-  see.on('mouseout', (e) => {
+  see.on('mouseout', e => {
     t.equal(e.type, 'mouseout')
     outs++
   })
@@ -95,7 +83,7 @@ test('ShapeEventEmitter mouseover and mouseout', (t) => {
   t.equal(outs, 2)
 })
 
-test('ShapeEventEmitter mouseover and mouseout', (t) => {
+test('ShapeEventEmitter mouseover and mouseout', t => {
   let r = new Rect([10, 10], 100, 100)
     , cee = new EventEmitter()
     , see = new ShapeEventEmitter(r, cee)
@@ -105,16 +93,14 @@ test('ShapeEventEmitter mouseover and mouseout', (t) => {
   t.equal(cee, see.getCanvasEventEmitter())
 })
 
-test('preventDefault', (t) => {
+test('preventDefault', t => {
   t.plan(1)
 
   let r = new Rect([10, 10], 100, 100)
     , cee = new EventEmitter()
     , see = new ShapeEventEmitter(r, cee)
 
-  see.on('mousemove', (e) => {
-    e.preventDefault()
-  })
+  see.on('mousemove', e => e.preventDefault())
 
   cee.emit('mousemove', { x: 30
                         , y: 70

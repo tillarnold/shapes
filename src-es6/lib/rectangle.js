@@ -24,8 +24,8 @@ export default class Rectangle extends BaseShape {
     ctx.lineTo(this.point.x, this.point.y)
   }
 
-  contains() {
-    let vector = makeVector(arguments)
+  contains(...args) {
+    let vector = makeVector(args)
     return this.point.x < vector.x &&
            this.point.y < vector.y &&
            this.point.x + this.width > vector.x &&

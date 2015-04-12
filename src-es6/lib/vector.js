@@ -11,8 +11,8 @@ export default class Vector {
     Object.freeze(this)
   }
 
-  distanceTo() {
-    let vector = Vector.makeVector(arguments)
+  distanceTo(...args) {
+    let vector = Vector.makeVector(args)
       , s1 = (this.x - vector.x) * (this.x - vector.x)
       , s2 = (this.y - vector.y) * (this.y - vector.y)
 
@@ -23,8 +23,8 @@ export default class Vector {
     return [this.x, this.y]
   }
 
-  midpoint() {
-    let vector = Vector.makeVector(arguments)
+  midpoint(...args) {
+    let vector = Vector.makeVector(args)
     return new Vector((this.x + vector.x) / 2, (this.y + vector.y) / 2)
   }
 

@@ -6,9 +6,13 @@ let { makeVector } = Vector
 
 
 export default class Polygon extends BaseShape {
+  /**
+   * @param vs {VectorLikeObject[]}
+   */
   constructor(vs) {
     super()
 
+    //@type { Vector[] }
     this.vectors = []
 
     vs.forEach( el => {
@@ -19,6 +23,9 @@ export default class Polygon extends BaseShape {
 
   }
 
+  /**
+   * @return {[number,number][]}
+   */
   toPairs() {
     let v = this.vectors
       , pol = []
@@ -31,6 +38,9 @@ export default class Polygon extends BaseShape {
     return pol
   }
 
+  /**
+   * @param ctx {CanvasRenderingContext2D}
+   */
   path(ctx) {
     let v = this.vectors
 
@@ -43,6 +53,10 @@ export default class Polygon extends BaseShape {
     ctx.lineTo(v[0].x, v[0].y)
   }
 
+  /**
+   * @param args {VectorLikeObject}
+   * @return {boolean}
+   */
   contains(...args) {
     let vector = makeVector(args)
       , line = [vector.toPair(), vector.add([9999.987, 99999.964]).toPair()]
@@ -56,6 +70,9 @@ export default class Polygon extends BaseShape {
     return count % 2 === 1
   }
 
+  /**
+   * @return {Vector}
+   */
   getCentroid() {
     let cx
       , cy
@@ -90,7 +107,8 @@ export default class Polygon extends BaseShape {
   /**
    * creates a new Polygon by calling map
    * on the vectors in the Polygon
-   * @param {function} the map function
+   * @param fn {function} - the map function
+   * @return {Polygon}
    */
   map(fn) {
     return new Polygon(this.vectors.map(fn))
@@ -99,12 +117,17 @@ export default class Polygon extends BaseShape {
   /**
    * Returns a new Polygon with
    * all vectors rounded
+   * @return {Polygon}
    */
   round() {
     return this.map( el => el.round() )
   }
 
-  moveBy(v) {
-    return this.map( el => el.add(v) )
+  /**
+   * @param args {VectorLikeObject}
+   * @return {Polygon}
+   */
+  moveBy(...args) {
+    return this.map( el => el.add(args) )
   }
 }

@@ -10,8 +10,8 @@ export default class ShapeEventEmitter extends EventEmitter {
    *
    * @constructor
    * @param {Shape} shape - The shape whose `contains` method will be used
-   * @param {EventEmitter | CanvasEventEmitter} canvasReference - The emitter whose events will be filtered
-   *                                                              or an canvasElement
+   * @param {EventEmitter | CanvasEventEmitter | HTMLCanvasElement} canvasReference - The emitter whose events will be filtered
+   *                                                                or an canvasElement
    */
   constructor(shape, canvasReference) {
     super()
@@ -84,6 +84,9 @@ export default class ShapeEventEmitter extends EventEmitter {
     })
   }
 
+  /**
+   * @returns {EventEmitter | CanvasEventEmitter}
+   */
   getCanvasEventEmitter() {
     return this._cee
   }

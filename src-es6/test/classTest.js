@@ -1,7 +1,7 @@
 import test from 'tape'
 import { Vector, Polygon, Rectangle, Circle, ShapeEventEmitter } from '..'
 
-test('Polygon#contains', t => {
+test('Classtest', t => {
   t.plan(5)
   //Disable warning about missing 'new'. That's what we are testing
   /*jshint -W064 */

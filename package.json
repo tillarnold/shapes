@@ -11,8 +11,7 @@
     "lint": "eslint src-es6/*",
     "jshint": "jshint src-es6/*",
     "build": "rm -rf es5-generated && mkdir es5-generated  && babel --optional runtime src-es6 --out-dir es5-generated",
-    "test-manually": "beefy es5-generated/test/manually.js -v",
-    "test-manually-live": "beefy es5-generated/test/manually.js -v --live"
+    "test-manually": "npm run build && beefy es5-generated/test/manually.js -v"
   },
   "repository": {
     "type": "git",
@@ -26,10 +25,10 @@
   "license": "MIT",
   "devDependencies": {
     "babel": "^5.0.12",
-    "babel-eslint": "^2.0.2",
+    "babel-eslint": "^3.0.1",
     "beefy": "^2.1.3",
     "coveralls": "^2.11.2",
-    "eslint": "^0.18.0",
+    "eslint": "^0.19.0",
     "istanbul": "^0.3.13",
     "jshint": "^2.7.0",
     "tape": "^4.0.0",
@@ -39,6 +38,6 @@
     "babel-runtime": "^5.0.12",
     "canvas-utils": "^0.6.0",
     "es6-map": "^0.1.1",
-    "red-blue-line-segment-intersect": "^1.0.1"
+    "point-in-polygon": "0.0.0"
   }
 }

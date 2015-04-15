@@ -1,6 +1,6 @@
 import BaseShape from './baseShape.js'
 import Vector from './vector.js'
-import findIntersections from 'red-blue-line-segment-intersect'
+import pointInPolygon from 'point-in-polygon'
 
 let { makeVector } = Vector
 
@@ -44,16 +44,9 @@ export default class Polygon extends BaseShape {
   }
 
   contains(...args) {
-    let vector = makeVector(args)
-      , line = [vector.toPair(), vector.add([9999.987, 99999.964]).toPair()]
-      , pairs = this.toPairs()
-      , count = 0
-
-    findIntersections(pairs, [line], () => {
-      count++
-    })
-
-    return count % 2 === 1
+    let vector = makeVector(args).toPair()
+      , pairs = this.vectors.map( el => el.toPair() )
+    return pointInPolygon(vector, pairs)
   }
 
   getCentroid() {

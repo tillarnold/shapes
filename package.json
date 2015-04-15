@@ -39,6 +39,6 @@
     "babel-runtime": "^5.0.12",
     "canvas-utils": "^0.6.0",
     "es6-map": "^0.1.1",
-    "red-blue-line-segment-intersect": "^1.0.1"
+    "point-in-polygon": "0.0.0"
   }
 }

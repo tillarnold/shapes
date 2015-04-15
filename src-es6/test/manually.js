@@ -1,21 +1,17 @@
-'use strict'
+import {Circle} from '..'
 
-var shape = require('..')
-
-//var ShapeEventEmitter = shape.ShapeEventEmitter
-var canvas = document.createElement('canvas')
-var ctx = canvas.getContext('2d')
+let canvas = document.createElement('canvas')
+  , ctx = canvas.getContext('2d')
+  , circle = new Circle([10, 10], 50)
+  , colorSwitch = true
 
 document.body.appendChild(canvas)
 canvas.style.outline = '1px solid black'
 
 
-var circle = new shape.Circle([10, 10], 50)
-var see = circle.createShapeEventEmitter(canvas)
+let see = circle.createShapeEventEmitter(canvas)
 
-
-var colorSwitch = true
-see.on('click', function(e){
+see.on('click', e => {
   console.log(e)
   colorSwitch = !colorSwitch
   ctx.fillStyle = colorSwitch ? 'red' : 'blue'

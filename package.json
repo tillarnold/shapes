@@ -11,8 +11,7 @@
     "lint": "eslint src-es6/*",
     "jshint": "jshint src-es6/*",
     "build": "rm -rf es5-generated && mkdir es5-generated  && babel --optional runtime src-es6 --out-dir es5-generated",
-    "test-manually": "beefy es5-generated/test/manually.js -v",
-    "test-manually-live": "beefy es5-generated/test/manually.js -v --live"
+    "test-manually": "npm run build && beefy es5-generated/test/manually.js -v"
   },
   "repository": {
     "type": "git",

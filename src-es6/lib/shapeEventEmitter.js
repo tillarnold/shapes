@@ -1,9 +1,8 @@
 import Vector from './vector.js'
 import { EventEmitter } from 'events'
 import { createCanvasEventEmitter } from 'canvas-utils'
-import MapObject from 'es6-map'
 
-let canvasEventEmitterMap = new MapObject()
+let canvasEventEmitterMap = new Map()
 
 export default class ShapeEventEmitter extends EventEmitter {
   /**

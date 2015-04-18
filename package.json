@@ -2,7 +2,7 @@
   "name": "shapes",
   "version": "0.4.0",
   "description": "A shapes library for JavaScript",
-  "main": "index.js",
+  "main": "es5-generated/index.js",
   "scripts": {
     "test": "npm run build && node es5-generated/test/test.js",
     "test-coveralls": "npm run istanbul && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",

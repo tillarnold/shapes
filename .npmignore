@@ -1,4 +1,5 @@
-/test
+/es6-src/test
+/es5-generated/test
 .editorconfig
 .jshintrc
 .eslintrc
